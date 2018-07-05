@@ -2,12 +2,21 @@ import React, { Component } from 'react';
 
 import Flat from './flat.jsx';
 
-export default class FlatList extends Component {
-  render() {
-    return (
-      <div className="flat-list">
-        {console.log(this.props.flats)}
-      </div>
-    );
-  }
-}
+const FlatList = (props) => {
+  return (
+    <div className="flat-list">
+      {props.flats.map((flat, index) => {
+        return (
+          <Flat
+            flat={flat}
+            key={index}
+            selectedFlat={flat.name === props.selectedFlat.name}
+            selectFlat={props.selectFlat}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
+export default FlatList;
