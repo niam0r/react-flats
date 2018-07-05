@@ -6,7 +6,7 @@ export default class Flat extends Component {
   }
 
   render() {
-    const { imageUrl, lat, lng, name, price, priceCurrency  } = this.props.flat;
+    const { imageUrl, name, price, priceCurrency } = this.props.flat;
     return (
       <div
         className={`card${this.props.selected ? ' active' : ''}`}

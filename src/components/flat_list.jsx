@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import Flat from './flat.jsx';
+import Flat from './flat';
 
 const FlatList = (props) => {
   return (
@@ -9,7 +9,7 @@ const FlatList = (props) => {
         return (
           <Flat
             flat={flat}
-            key={index}
+            key={flat.imageUrl}
             selected={flat.name === props.selectedFlat.name}
             index={index}
             selectFlat={props.selectFlat}
