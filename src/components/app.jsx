@@ -8,16 +8,15 @@ import flats from '../data/flats.js'
 export default class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       flats,
       selectedFlat: flats[0]
-    }
+    };
   }
 
   selectFlat = (index) => {
     this.setState({ selectedFlat: flats[index] });
-    console.log(selectedFlat);
+    // console.log(selectedFlat);
   }
 
   render() {
