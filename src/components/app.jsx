@@ -3,7 +3,8 @@ import GoogleMapReact from 'google-map-react';
 
 import FlatList from './flat_list.jsx';
 import Flat from './flat.jsx';
-import flats from '../data/flats.js'
+import flats from '../data/flats.js';
+import Marker from './marker.jsx';
 
 export default class App extends Component {
   constructor(props) {
@@ -11,6 +12,13 @@ export default class App extends Component {
     this.state = {
       flats,
       selectedFlat: flats[0]
+    };
+  }
+
+  center() {
+    return {
+      lat: this.state.selectedFlat.lat,
+      lng: this.state.selectedFlat.lng
     };
   }
 
@@ -28,7 +36,17 @@ export default class App extends Component {
           selectFlat={this.selectFlat}
         />
         <div className="map-container">
-
+          <GoogleMapReact
+            bootstrapURLKeys={{ key: 'AIzaSyDX7i2xCGzU01SvWjH_p0BhWEgPBR5sf_8' }}
+            center={this.center()}
+            defaultZoom={12}
+          >
+            <Marker
+              lat={this.state.selectedFlat.lat}
+              lng={this.state.selectedFlat.lng}
+              // text={'Kreyser Avrora'}
+            />
+          </GoogleMapReact>
         </div>
       </div>
     );
